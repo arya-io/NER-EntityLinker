@@ -1,4 +1,4 @@
 streamlit
 spacy
 requests
-./en_core_web_sm-2.2.0.tar.gz
+./en_core_web_sm-3.8.0.tar.gz
