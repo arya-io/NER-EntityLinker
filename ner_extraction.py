@@ -1,8 +1,12 @@
-# ner_extraction.py
 import spacy
+import os
 
-# Load spaCy's English language model
-nlp = spacy.load("en_core_web_sm")
+# Check if the SpaCy model is installed, and if not, download it
+try:
+    nlp = spacy.load("en_core_web_sm")
+except OSError:
+    os.system("python -m spacy download en_core_web_sm")
+    nlp = spacy.load("en_core_web_sm")
 
 # Function to extract Named Entities
 def extract_named_entities(text):
