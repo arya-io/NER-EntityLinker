@@ -1,11 +1,16 @@
 import spacy
-import os
+import subprocess
+import sys
 
-# Check if the SpaCy model is installed, and if not, download it
+# Function to install the spaCy model
+def install_spacy_model():
+    subprocess.check_call([sys.executable, "-m", "spacy", "download", "en_core_web_sm"])
+
+# Try loading the spaCy model and download if necessary
 try:
     nlp = spacy.load("en_core_web_sm")
 except OSError:
-    os.system("python -m spacy download en_core_web_sm")
+    install_spacy_model()
     nlp = spacy.load("en_core_web_sm")
 
 import streamlit as st
