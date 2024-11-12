@@ -1,3 +1,13 @@
+import spacy
+import os
+
+# Check if the SpaCy model is installed, and if not, download it
+try:
+    nlp = spacy.load("en_core_web_sm")
+except OSError:
+    os.system("python -m spacy download en_core_web_sm")
+    nlp = spacy.load("en_core_web_sm")
+
 import streamlit as st
 import re
 from ner_extraction import extract_named_entities
