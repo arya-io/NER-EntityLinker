@@ -1,8 +1,12 @@
 import spacy
-from spacy.matcher import Matcher
+import os
 
-# Load the pre-trained spaCy model
-nlp = spacy.load("en_core_web_sm")
+# Check if the SpaCy model is installed, and if not, download it
+try:
+    nlp = spacy.load("en_core_web_sm")
+except OSError:
+    os.system("python -m spacy download en_core_web_sm")
+    nlp = spacy.load("en_core_web_sm")
 
 # Initialize the Matcher
 matcher = Matcher(nlp.vocab)
