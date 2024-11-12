@@ -6,10 +6,10 @@ from disambiguation import handle_ambiguous_entity
 from entity_refinement import refine_entity_types
 
 def capitalize_proper_nouns(text):
-    # Capitalize the first letter of each word (simulating typical sentence case)
+    # Capitalize the first letter of each word
     return ' '.join([word.capitalize() if word.islower() else word for word in text.split()])
 
-# Custom CSS to enhance the look and feel of the app
+# Custom CSS to enhance the look
 st.markdown("""
     <style>
     .css-ffhzg2 {  # This controls the text area size and appearance
@@ -39,35 +39,30 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Title of the Streamlit app with a description
 st.title("Named Entity Recognition & Linking with Disambiguation")
 st.markdown("""
     This app uses Natural Language Processing (NLP) to identify and link named entities from your text.
     It provides clickable links to Wikipedia articles for each identified entity and offers disambiguation for ambiguous entities like "Apple".
     """)
 
-# Main text input area (moved from sidebar)
 st.subheader("Enter Text for NER and Entity Linking:")
 input_text = st.text_area("Enter text below:", height=150)
 
-# Button for processing the text
 submit_button = st.button(label="Process Text")
 
-# Reset button to clear the input
 reset_button = st.button(label="Clear Text")
 
 if reset_button:
-    input_text = ""  # Clear the input text area
+    input_text = ""
 
-# Loading spinner when the user clicks the submit button
 with st.spinner("Processing..."):
     if submit_button and input_text:
         try:
             # Step 1: Capitalize proper nouns and extract named entities from the input text
             capitalized_text = capitalize_proper_nouns(input_text)
-            entities = extract_named_entities(capitalized_text)  # Use this capitalized version for NER
+            entities = extract_named_entities(capitalized_text)
 
-            # Step 2: Refine the entity types (e.g., detect Apple products and fruit)
+            # Step 2: Refine the entity types
             refined_entities = refine_entity_types(input_text)
 
             # Step 3: Display the sentence with clickable entities
@@ -100,7 +95,7 @@ with st.spinner("Processing..."):
             # Step 5: Retrieve the corresponding Wikipedia links for the entities
             st.subheader("Entity Links:")
             for entity, label in refined_entities:
-                # Handle ambiguous entities (e.g., Apple could be both a product and a company)
+                # Handle ambiguous entities
                 link = get_wikipedia_link(entity, label)
                 if link:
                     st.write(f"Entity: {entity}, Type: {label}, Link: {link}")
