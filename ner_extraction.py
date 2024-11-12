@@ -11,8 +11,3 @@ def extract_named_entities(text):
     doc = nlp(text)
     entities = [(ent.text, ent.label_) for ent in doc.ents]
     return entities
-
-# Example usage:
-# text = "Barack Obama is the president of the United States."
-# entities = extract_named_entities(text)
-# print(entities)
