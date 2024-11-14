@@ -38,6 +38,7 @@ This Streamlit app performs Named Entity Recognition (NER) using NLP techniques 
 - spacy
 - requests
 - re (Regular Expression library)
+- `./en_core_web_sm-3.8.0.tar.gz` file to be downloaded from github
 
 ## Usage
 
