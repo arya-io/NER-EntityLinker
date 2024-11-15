@@ -51,7 +51,7 @@ Example input:
 `Apple Inc. launched the iPhone 15 last week. Microsoft and Apple are leading the tech industry.`
 
 The app will extract entities like **"Apple Inc."**, **"iPhone 15"**, and **"Microsoft"** and link them to relevant Wikipedia pages.
-
+It will also handle the ambiguations accordingly.
 ## Screenshots
 
 ![App Interface Screenshot](screenshot.png)
