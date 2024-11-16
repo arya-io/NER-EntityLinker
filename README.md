@@ -55,6 +55,7 @@ It will also handle the ambiguations accordingly.
 ## Screenshots
 
 ![App Interface Screenshot](screenshot.png)
+![App Interface Screenshot](screenshot_.png)
 
 ## License
 
