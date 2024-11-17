@@ -2,7 +2,6 @@ import spacy
 
 nlp = spacy.load("en_core_web_sm")
 
-# Function to extract Named Entities
 def extract_named_entities(text):
     """
     Extracts named entities from a text using spaCy.
