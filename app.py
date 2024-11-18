@@ -9,36 +9,6 @@ def capitalize_proper_nouns(text):
     # Capitalize the first letter of each word
     return ' '.join([word.capitalize() if word.islower() else word for word in text.split()])
 
-# Custom CSS to enhance the look
-st.markdown("""
-    <style>
-    .css-ffhzg2 {  # This controls the text area size and appearance
-        font-size: 16px;
-        padding: 20px;
-        background-color: #f7f7f7;
-    }
-    .css-1v3fvcr {  # This changes the button style
-        background-color: #4CAF50;
-        color: white;
-        padding: 10px 20px;
-        font-size: 16px;
-        border-radius: 5px;
-    }
-    .css-14xtw13 {  # This controls the title style
-        text-align: center;
-        font-size: 28px;
-        color: #2C3E50;
-        margin-bottom: 30px;
-    }
-    .stTextArea textarea { 
-        font-size: 16px;
-        padding: 10px;
-        border-radius: 8px;
-        width: 100%;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
 st.title("Named Entity Recognition & Linking with Disambiguation")
 st.markdown("""
     This app uses Natural Language Processing (NLP) to identify and link named entities from your text.
